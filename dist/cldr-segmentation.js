@@ -324,7 +324,7 @@
         while (!cursor.isEos()) {
           this.stateMachine.handleNext(cursor);
 
-          if (this.suppressions.shouldBreak(cursor)) {
+          if (cursor.isEos() || this.suppressions.shouldBreak(cursor)) {
             callback(cursor.actualPosition);
           }
         }

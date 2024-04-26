@@ -45,5 +45,12 @@
 
       expect(result).toEqual(["Dies ist ein test Satz. ", "Und hier ein Zweiter."]);
     });
+
+    it('splits correctly when a string ends with a suppression directly followed by a single space', () => {
+      let str = "I like the Mrs. ";
+      let result = cldrSegmentation.sentenceSplit(str, englishSuppressions);
+
+      expect(result).toEqual(["I like the Mrs. "]);
+    });
   });
 })();
